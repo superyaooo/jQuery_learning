@@ -1,0 +1,6 @@
+var input = $( 'input[type="text"]' );  // gets value of input
+input.val( 'new value' );    // sets 'new value' to the value of the input
+input.val(); // returns 'new value'
+
+
+var listItemColor = $('li').css('color');   // gets the value of 'color' property of <li> element

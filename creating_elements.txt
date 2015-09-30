@@ -1,0 +1,13 @@
+$('<p>');    // creates a new <p> element with no content
+
+$('<p>Hello!</p>');    // creates a new <p> with content
+
+$('<p class="greet">Hello!</p>');     // creates a new <p> with content and class
+
+
+// creates a new <p> element by passing an object with info
+// CLASS has to be wrapped with quotation marks
+$('<p>',{
+  html: 'Hello!',
+  'class': 'greet'
+});

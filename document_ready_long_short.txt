@@ -1,0 +1,20 @@
+// A $(document).ready() block
+$(document).ready(function(){
+  console.log("ready!");
+});
+
+
+// Shorthand for $(document).ready()
+$(function () {
+  console.log("ready!");
+});
+
+
+// Passing a named function instead of an anonymous function.
+function readyFn(jQuery){
+  // Code to run when document is ready.
+}
+
+$(document).ready(readyFn);
+// or:
+$(window).load(readyFn);
