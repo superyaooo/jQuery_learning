@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+
+    <ul id="my-unordered-list">This is some HTML that you can use to try out jQuery in the editor on the left. Use your browser's console to see the HTML.
+      <li><i>HTML</i></li>
+      <li><i>CSS</i></li>
+      <li><i>JavaScript</i></li>
+    </ul>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        // The .detach() method is for temporarily removing elements; for example, if you are going to make a lot of changes to your page's structure using jQuery, it will be more efficient to use .detach() to remove the affected elements, make your changes, and then re-attach the element using one of the insertion methods. Elements removed with .detach() will retain their event handlers; you can re-add them to the document with .appendTo() or another DOM insertion method.
+
+        $( function() {
+            $('#my-unordered-list li').click(function(){
+              alert($(this).text());
+            });     // shows <li> text via alert window
+
+            var detachedListItem = $('#my-unordered-list li').first().detach();
+
+            detachedListItem.appendTo('#my-unordered-list');
+            detachedListItem.trigger('click');    // alert!
+
+        });
+    </script>
+</body>
+</html>

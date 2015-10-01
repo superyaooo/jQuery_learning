@@ -16,13 +16,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         $( function() {
-            var clones = $('li').clone();
+            var clones = $('li').clone();   // makes a copy of the <li> elements, this stays in memory
 
-            clones.html( function(index, oldHtml) {
+            clones.html( function(index, oldHtml) {    // adding '!!!' to clones
               return oldHtml + '!!!';
             });
 
-            $('#my-unordered-list').append(clones);
+            $('#my-unordered-list').append(clones);   // appends clones to document
         });
     </script>
 </body>
