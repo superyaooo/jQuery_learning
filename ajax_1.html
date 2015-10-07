@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+
+    <div id="target">
+      This content will be replaced as you make successful AJAX requests.
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $( function() {
+          // create "callback" functions that will be invoked when..
+
+            // ..the AJAX request is successful
+            var updatePage=function(resp){
+              $('#target').html(resp.people[0].name);
+            };
+
+            // ..the AJAX request fails
+            var printError=function(req, status, err){
+              console.log('something went wrong', status, err);
+            };
+
+            // create an object to describe the AJAX request
+            var ajaxOptions={
+              url: 'data/people.json',
+              dataType: 'json',
+              success: updatePage,
+              error: printError
+            };
+
+            // initiate the request
+            $.ajax(ajaxOptions);
+        });
+    </script>
+</body>
+</html>

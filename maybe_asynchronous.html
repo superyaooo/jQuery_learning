@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+
+    <div id="target">
+      This content will be replaced as you make successful AJAX requests.
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $( function() {
+            function maybeAsync(num){
+              var dfd=$.Deferred();
+
+              // return a deferred when num===1
+              if(num===1){
+                setTimeout(function(){
+                  dfd.resolve(num);
+                }, 100);
+                return dfd.promise();
+              }
+
+              // return immediately otherwise
+              return num;
+            }
+
+/*  (1)
+            // this will resolve async
+            $.when(maybeAsync(1)).then(function(resp){
+              $('#target').append('<p>'+resp+'</p>');
+            });
+
+            // this will return immediately
+            $.when(maybeAsync(0)).then(function(resp){
+              $('#target').append('<p>'+resp+'</p>');
+            });
+*/
+
+            $.when(maybeAsync(0),maybeAsync(1))
+              .then(function(resp1,resp2){
+                var target=$('#target');
+                target.append('<p>'+resp1+'</p>');
+                target.append('<p>'+resp2+'</p>');
+              });
+
+        });
+    </script>
+</body>
+</html>
