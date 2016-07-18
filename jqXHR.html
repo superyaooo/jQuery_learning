@@ -22,7 +22,8 @@
               $('#target').append(
                 '<p>people: ' + resp.people.length + '</p>'
               );
-              console.log(resp.people);
+              console.log(resp.people);  // only shows up in the console of developer tools, not on actual page.
+              //console.log("It worked!");
             };
 
             var err=function(req, status, err){
